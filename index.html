@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+</head>
+
+<body>
+
+    <h1 id="main-title">Hello world</h1>
+
+    <button id="my-button">Click button</button>
+
+    <br><br>
+
+    <textarea id="text-input" rows="2" cols="25"></textarea>
+
+    <br><br>
+
+    <button id="add-data">Add To List</button>
+
+    <ul id="my-list"></ul>
+
+    <script>
+        const myButton = document.getElementById("my-button");
+        const title = document.getElementById("main-title");
+
+        myButton.addEventListener("click", function () {
+            console.log("hello world");
+            title.textContent = "Moi maailma";
+        });
+
+        const addButton = document.getElementById("add-data");
+        const myList = document.getElementById("my-list");
+        const textInput = document.getElementById("text-input");
+
+        addButton.addEventListener("click", function () {
+            const li = document.createElement("li");
+            li.textContent = textInput.value;
+            myList.appendChild(li);
+            textInput.value = "";
+        });
+    </script>
+
+</body>
+</html>
