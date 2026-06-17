@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User Database</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>User Database</h1>
+
+    <table id="user-table">
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Admin</th>
+            <th>Image</th>
+        </tr>
+
+        <tr>
+            <td>Webmaster</td>
+            <td>example@email.com</td>
+            <td>X</td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>User123</td>
+            <td>example@email.com</td>
+            <td>-</td>
+            <td></td>
+        </tr>
+    </table>
+
+    <br>
+
+    <div>
+        <label>Username:</label>
+        <input type="text" id="input-username">
+    </div>
+
+    <br>
+
+    <div>
+        <label>Email:</label>
+        <input type="text" id="input-email">
+    </div>
+
+    <br>
+
+    <div>
+        <label>Admin:</label>
+        <input type="checkbox" id="input-admin">
+    </div>
+
+    <br>
+
+    <div>
+        <label>Image:</label>
+        <input type="file" id="input-image">
+    </div>
+
+    <br>
+
+    <button id="submit-data">
+        Submit
+    </button>
+
+    <button id="empty-table">
+        Empty Table
+    </button>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
