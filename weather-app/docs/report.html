@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Weather App — Project Report</title>
+<style>
+  @page { size: A4; margin: 14mm 16mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", Arial, sans-serif;
+    font-size: 9.8pt;
+    line-height: 1.4;
+    color: #1a1a1a;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 16pt; margin: 0 0 2px; }
+  .subtitle { color: #555; margin: 0 0 12px; font-size: 9.5pt; }
+  h2 { font-size: 11pt; margin: 14px 0 4px; border-bottom: 1px solid #ccc; padding-bottom: 2px; }
+  p { margin: 4px 0; }
+  ul, ol { margin: 4px 0; padding-left: 18px; }
+  li { margin: 1.5px 0; }
+  code, pre {
+    font-family: "SFMono-Regular", Consolas, monospace;
+    font-size: 8.8pt;
+    background: #f2f2f2;
+    border-radius: 3px;
+  }
+  pre { padding: 6px 8px; margin: 4px 0; overflow-x: auto; }
+  code { padding: 1px 3px; }
+  a { color: #1a5fb4; text-decoration: none; }
+  table { border-collapse: collapse; width: 100%; font-size: 8.6pt; margin: 4px 0; }
+  th, td { border: 1px solid #ccc; padding: 2.5px 5px; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; }
+  td:nth-child(2), td:nth-child(3), th:nth-child(2), th:nth-child(3) { text-align: center; width: 44px; }
+  .declaration {
+    border: 1.5px solid #1a1a1a;
+    border-radius: 6px;
+    padding: 8px 10px;
+    margin-top: 6px;
+    background: #fafafa;
+  }
+  .note { font-style: italic; color: #444; }
+</style>
+</head>
+<body>
+
+<h1>Weather App — Project Report</h1>
+<p class="subtitle">Course project, Project option 2: Weather app</p>
+
+<h2>1. What I built</h2>
+<p>A weather app in plain HTML, CSS and JavaScript. You can search for a city or use your GPS
+location, and it shows the current weather, the next 24 hours, and a 7-day forecast. I used two
+different weather websites (Open-Meteo and MET Norway) at the same time so the app pulls from
+two data sources, and I drew a small chart comparing their temperatures for the next 24 hours.
+There's also a favorites list and a °C/°F/K switch.</p>
+
+<h2>2. Tools used</h2>
+<p>HTML5 and CSS3 (flexbox + one media query for mobile), no CSS framework. Plain JavaScript,
+one file (<code>script.js</code>) — no React or any framework, as required. The
+<code>&lt;canvas&gt;</code> element for the comparison chart (just basic line drawing, no chart
+library). APIs: <a href="https://open-meteo.com/">Open-Meteo</a> for the main forecast + city
+search, and <a href="https://api.met.no/">MET Norway / Yr.no</a> as the second data source for
+comparison — both free, no API key needed, which made testing a lot easier. Python's
+<code>http.server</code> to run the page locally while testing (opening the HTML file directly
+caused some fetch requests to be blocked).</p>
+
+<h2>3. Directory structure</h2>
+<pre>weather-app/
+  index.html
+  css/style.css
+  js/script.js
+  docs/report.md, report.html, report.pdf</pre>
+<p>I kept HTML, CSS and JS in separate files/folders so I wouldn't lose points there.</p>
+
+<h2>4. How many points I think this deserves</h2>
+<table>
+<tr><th>Feature</th><th>Max</th><th>I'd say</th><th>Why</th></tr>
+<tr><td>PDF report</td><td>3</td><td>2–3</td><td>This document, kept it fairly short</td></tr>
+<tr><td>Responsive (desktop + mobile)</td><td>4</td><td>3</td><td>One media query at 600px, only really tested on my own phone width in devtools</td></tr>
+<tr><td>Works on Firefox/Safari/Edge/Chrome</td><td>3</td><td>2</td><td>Only tested in Chrome myself; used normal fetch/DOM stuff so it should work elsewhere too</td></tr>
+<tr><td>Clear directory structure</td><td>2</td><td>2</td><td>css/js separated, see §3</td></tr>
+<tr><td>Location search</td><td>1</td><td>1</td><td>Uses Open-Meteo's search API</td></tr>
+<tr><td>GPS location</td><td>2</td><td>2</td><td><code>navigator.geolocation</code>, just labeled "My Location" (no reverse geocoding)</td></tr>
+<tr><td>2+ data sources</td><td>3</td><td>3</td><td>Open-Meteo + MET Norway, both actually called every time</td></tr>
+<tr><td>3+ data sources</td><td>2</td><td>0</td><td>Didn't add a third one, wanted to keep it simple</td></tr>
+<tr><td>Current weather</td><td>1</td><td>1</td><td></td></tr>
+<tr><td>24h hourly forecast</td><td>3</td><td>2–3</td><td>Hourly, but icon set only covers common weather codes</td></tr>
+<tr><td>7-day forecast</td><td>3</td><td>3</td><td></td></tr>
+<tr><td>Icons everywhere</td><td>3</td><td>2</td><td>Icons show up but the mapping is pretty rough (a handful of buckets)</td></tr>
+<tr><td>Look reflects the weather</td><td>2</td><td>2</td><td>Background color changes with temperature/rain</td></tr>
+<tr><td>Two forecasts on one chart</td><td>3</td><td>2–3</td><td>Basic canvas line chart, no axis labels, shows both lines though</td></tr>
+<tr><td>Favorites</td><td>2</td><td>2</td><td>Saved in localStorage, click to reload</td></tr>
+<tr><td>°C/°F/K switch</td><td>2</td><td>2</td><td></td></tr>
+<tr><td><b>Total (being honest about the gaps)</b></td><td></td><td><b>~30–33</b></td><td></td></tr>
+</table>
+<p>I'm not 100% sure how strict the grading is on things like "does every icon look right" or
+"did you really test on Safari", so I left some of these as a range instead of a fixed number.</p>
+
+<h2>5. Known issues / things I didn't get to</h2>
+<ul>
+<li>Only 2 weather sources, not 3 — didn't want to deal with API keys for a third one.</li>
+<li>The chart has no axis numbers, just two lines, so you can compare them but can't read exact
+values off it.</li>
+<li>Weather code → icon mapping isn't complete, some rarer codes just show a generic 🌡️ icon.</li>
+<li>GPS location just shows "My Location" instead of a real city name (would need another API
+call to reverse-geocode, skipped that).</li>
+<li>Favorites only remember the city name, not the coordinates, so clicking a favorite
+re-searches by name — if two cities share a name in different countries this could pick the
+wrong one.</li>
+<li>Not much error handling — if the internet drops mid-request the app might just get stuck on
+"Loading weather..." instead of showing a clean error.</li>
+</ul>
+
+<h2>6. How to run it</h2>
+<ol>
+<li>Open a terminal inside <code>weather-app/</code> and run <code>python -m http.server 8000</code>
+(or any other simple local server).</li>
+<li>Open <code>http://localhost:8000</code> in your browser.</li>
+<li>Search a city, or click "Use My Location".</li>
+</ol>
+
+<h2>7. AI usage declaration (mandatory)</h2>
+<div class="declaration">
+<p>I used <b>Claude (Anthropic)</b> to write this project. I described the assignment (course
+project brief, Project 2: Weather app) and asked for a working implementation, then asked for it
+to be rewritten in a simpler style after the first version came back far more polished/advanced
+than something I would realistically produce at my current skill level. The code, this report,
+and the testing were all generated by the AI; I did not hand-write any of it myself. No other AI
+tool was used.</p>
+<p class="note">Note: this project was built as a demonstration/test of what an AI assistant can
+produce, not submitted as anyone's real coursework.</p>
+</div>
+
+</body>
+</html>

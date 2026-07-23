@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Weather App</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <h1>🌤️ My Weather App</h1>
+  <p>School project - shows weather from two different weather websites at the same time.</p>
+
+  <div id="search-box">
+    <input type="text" id="city-input" placeholder="Type a city name...">
+    <button onclick="searchCity()">Search</button>
+    <button onclick="useMyLocation()">📍 Use My Location</button>
+  </div>
+
+  <div id="unit-buttons">
+    <button class="unit-btn active" id="btn-c" onclick="setUnit('C')">°C</button>
+    <button class="unit-btn" id="btn-f" onclick="setUnit('F')">°F</button>
+    <button class="unit-btn" id="btn-k" onclick="setUnit('K')">K</button>
+  </div>
+
+  <p id="status"></p>
+
+  <div id="current-weather">
+    <h2 id="city-name">Search for a city to start</h2>
+    <p id="current-icon"></p>
+    <p id="current-temp"></p>
+    <p id="current-desc"></p>
+    <p id="compare-text"></p>
+    <button onclick="addFavorite()">⭐ Add to favorites</button>
+  </div>
+
+  <div id="favorites">
+    <h3>My Favorites</h3>
+    <ul id="favorites-list"></ul>
+  </div>
+
+  <h3>Next 24 Hours (Open-Meteo)</h3>
+  <div id="hourly-forecast"></div>
+
+  <h3>Temperature Comparison Chart</h3>
+  <p>This chart compares the two weather websites so you can see if they agree.</p>
+  <canvas id="chart" width="600" height="200"></canvas>
+  <p id="chart-legend"></p>
+
+  <h3>7 Day Forecast</h3>
+  <div id="daily-forecast"></div>
+
+  <footer>
+    <p>Weather data from <a href="https://open-meteo.com/">Open-Meteo</a> and <a href="https://www.met.no/">MET Norway (Yr.no)</a>.</p>
+    <p>Made for a web programming course project.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
