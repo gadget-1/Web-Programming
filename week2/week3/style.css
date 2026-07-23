@@ -1,0 +1,14 @@
+body {
+  font-family: "Verdana", "Arial", sans-serif;
+}
+
+td {
+  padding: 6px;
+  border-bottom: 1px solid gray;
+}
+
+th {
+  background-color: #b7d0ff;
+  font-weight: bold;
+  padding: 12px 0px 12px 6px;
+}
